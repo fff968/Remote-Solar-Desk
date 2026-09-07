@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dyala Alahmadieh — Remote Solar Engineering Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2328; --navy-deep:#15181C; --paper:#F6F3EC; --paper-dim:#EDE9DE;
+    --ink:#1B1F22; --amber:#2DBFA6; --steel:#7C8A8C; --rust:#1F9C86;
+    --line: rgba(124,138,140,0.35); --good:#4CAF7D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(246,243,236,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:1.02rem;}
+  .brand span{color:var(--rust);}
+  .navlinks{display:flex; gap:26px; font-size:0.86rem;}
+  .navlinks a{text-decoration:none; color:var(--navy);}
+  .navlinks a:hover{color:var(--rust);}
+  @media(max-width:760px){.navlinks{display:none;}}
+
+  .hero{background:var(--navy); color:var(--paper); padding:100px 0 80px; position:relative; overflow:hidden;}
+  .hero-eyebrow{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--amber); margin-bottom:18px;}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem); line-height:1.12; max-width:16ch; margin-bottom:22px;}
+  .hero p.lede{font-size:1.08rem; color:#C7D2DE; max-width:600px; margin-bottom:20px;}
+  .brand-tag{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--amber); opacity:0.85; margin-bottom:36px; display:block;}
+  .hero-cta{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:13px 26px; border-radius:2px; font-size:0.9rem; text-decoration:none; border:1px solid var(--amber); transition:transform .15s ease;}
+  .btn-solid{background:var(--amber); color:var(--navy-deep); font-weight:500;}
+  .btn-solid:hover{transform:translateY(-2px);}
+  .btn-outline{color:var(--paper); border-color:var(--steel);}
+  .btn-outline:hover{border-color:var(--paper); transform:translateY(-2px);}
+  .hero-flags{display:flex; gap:22px; margin-top:38px; flex-wrap:wrap;}
+  .flag{font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:var(--steel); border:1px solid rgba(124,140,160,0.4); padding:6px 12px;}
+
+  section{padding:80px 0;}
+  .sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:40px; border-bottom:1px solid var(--line); padding-bottom:16px;}
+  .sec-tag{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--steel);}
+  .sec-head h2{font-size:1.6rem;}
+  .sec-sub{color:#4A4A4A; font-size:0.98rem; max-width:66ch; margin:-24px 0 36px;}
+
+  /* desk table */
+  .desk-table{width:100%; border-collapse:collapse; font-size:0.94rem;}
+  .desk-table th{text-align:left; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--steel); text-transform:uppercase; letter-spacing:0.03em; padding:10px 16px; border-bottom:1px solid var(--line);}
+  .desk-table td{padding:16px; border-bottom:1px solid var(--line); vertical-align:top;}
+  .desk-table td:first-child{color:#444; width:42%;}
+  .desk-table td:last-child{font-weight:500;}
+  .arrow-col{width:30px; text-align:center; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  @media(max-width:640px){
+    .desk-table thead{display:none;}
+    .desk-table, .desk-table tbody, .desk-table tr, .desk-table td{display:block; width:100% !important;}
+    .desk-table tr{padding:14px 0; border-bottom:1px solid var(--line);}
+    .desk-table td{border:none; padding:4px 0;}
+    .arrow-col{display:none;}
+    .desk-table td:first-child::before{content:"YOU SEND — "; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--steel);}
+    .desk-table td:last-child::before{content:"I DELIVER — "; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--rust);}
+  }
+
+  /* process steps */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  @media(max-width:760px){.steps{grid-template-columns:1fr;}}
+  .step{background:var(--paper); padding:30px 26px;}
+  .step-num{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.85rem; margin-bottom:10px;}
+  .step h3{font-size:1.1rem; margin-bottom:10px;}
+  .step p{font-size:0.9rem; color:#4A4A4A;}
+
+  /* case studies */
+  .case{border:1px solid var(--line); background:#FBFAF6; padding:30px; margin-bottom:22px;}
+  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:6px;}
+  .case h3{font-size:1.25rem;}
+  .case-loc{font-size:0.82rem; color:var(--steel); margin-bottom:20px;}
+  .case-cols{display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px;}
+  @media(max-width:760px){.case-cols{grid-template-columns:1fr;}}
+  .case-label{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--rust); margin-bottom:6px; letter-spacing:0.03em;}
+  .case-cols p{font-size:0.9rem; color:#333;}
+  .case-stats{display:flex; gap:26px; flex-wrap:wrap; margin-top:22px; padding-top:18px; border-top:1px dashed var(--line);}
+  .stat-num{font-family:'Fraunces',serif; font-size:1.3rem; color:var(--navy); font-weight:600;}
+  .stat-label{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--steel);}
+
+  /* more work grid */
+  .pgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:12px;}
+  @media(max-width:760px){.pgrid{grid-template-columns:1fr;}}
+  .pcard{border:1px solid var(--line); background:#FBFAF6; padding:22px;}
+  .pcard-img{width:100%; aspect-ratio:16/10; object-fit:cover; margin-bottom:14px; border:1px solid var(--line);}
+  .pcard-row{display:flex; gap:6px; margin-bottom:14px;}
+  .pcard-row img{width:33.33%; aspect-ratio:4/3; object-fit:cover; border:1px solid var(--line);}
+  .pcard-top{display:flex; justify-content:space-between; gap:10px; margin-bottom:6px;}
+  .pcard h4{font-size:1rem; font-family:'Fraunces',serif; font-weight:600;}
+  .ptype{font-family:'IBM Plex Mono',monospace; font-size:0.66rem; color:var(--rust); border:1px solid var(--rust); padding:2px 7px; white-space:nowrap; height:fit-content;}
+  .pcard p.desc{font-size:0.86rem; color:#444; margin:6px 0 12px;}
+  .mini-specs{display:flex; flex-wrap:wrap; gap:8px 18px; border-top:1px dashed var(--line); padding-top:10px; font-size:0.78rem;}
+  .mini-specs b{color:var(--navy);}
+
+  /* expertise */
+  .capgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  @media(max-width:760px){.capgrid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.capgrid{grid-template-columns:1fr;}}
+  .cap{background:var(--paper); padding:24px 20px;}
+  .cap h4{font-size:0.98rem; margin-bottom:6px; font-weight:600;}
+  .cap p{font-size:0.85rem; color:#4A4A4A;}
+
+  .toolrow{display:flex; flex-wrap:wrap; gap:10px;}
+  .tool{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; border:1px solid var(--line); padding:8px 14px; color:var(--navy);}
+
+  .credline{font-size:0.85rem; color:var(--steel); max-width:70ch; margin-top:18px;}
+
+  .contact{background:var(--navy); color:var(--paper);}
+  .contact .sec-head{border-color:rgba(255,255,255,0.15);}
+  .contact .sec-tag{color:var(--steel);}
+  .contact-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;}
+  .contact h2.big{font-size:clamp(1.6rem,3.6vw,2.3rem); max-width:20ch; font-family:'Fraunces',serif; font-weight:600;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-size:0.95rem;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid var(--steel); padding-bottom:2px; width:fit-content;}
+  .contact-links a:hover{border-color:var(--amber); color:var(--amber);}
+  .contact-links .secondary{color:var(--steel); font-size:0.82rem; border:none;}
+
+  .credphoto{width:100%; display:block;}
+  .credphoto-wrap{background:var(--paper-dim); border-bottom:1px solid var(--line);}
+  .credphoto-cap{
+    font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--steel);
+    padding:12px 0; text-align:center;
+  }
+  footer{text-align:center; padding:26px 0; font-size:0.78rem; color:var(--steel); font-family:'IBM Plex Mono',monospace; border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Dyala Alahmadieh <span>·</span> Solar Engineering Desk</div>
+    <div class="navlinks">
+      <a href="#desk">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">REMOTE SOLAR ENGINEERING · SERVING US &amp; GULF EPCS</div>
+    <h1>Extra engineering capacity for your solar projects — without the extra hire.</h1>
+    <p class="lede">I help solar EPCs, developers, and consultants in the US and the Gulf handle overflow PV design, simulation, and proposal work — remotely, accurately, and on your timeline.</p>
+    <span class="brand-tag">✦ Bring the sun into your socket.</span>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-solid">View engineering work</a>
+      <a href="#contact" class="btn btn-outline">Discuss a project</a>
+    </div>
+    <div class="hero-flags">
+      <span class="flag">2.4 MWp utility-scale</span>
+      <span class="flag">PV + BESS hybrid</span>
+      <span class="flag">Multi-country delivery</span>
+    </div>
+  </div>
+</header>
+
+<div class="credphoto-wrap">
+  <img class="credphoto" src="dyala-onsite.png" alt="Dyala Alahmadieh testing and commissioning equipment at a utility-scale solar plant">
+  <div class="credphoto-cap">on-site testing &amp; commissioning — utility-scale PV plant</div>
+</div>
+
+<section id="desk">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">01 — the offer</span><h2>Your Remote Engineering Desk</h2></div>
+    <p class="sec-sub">Need extra technical capacity without hiring another full-time engineer? Send me what you have — I return an engineering deliverable your team can use directly.</p>
+    <table class="desk-table">
+      <thead><tr><th>You send</th><th></th><th>I deliver</th></tr></thead>
+      <tbody>
+        <tr><td>Electricity bill + site data</td><td class="arrow-col">→</td><td>Preliminary system design</td></tr>
+        <tr><td>Roof / site drawings</td><td class="arrow-col">→</td><td>PV layout + string sizing</td></tr>
+        <tr><td>Project requirements</td><td class="arrow-col">→</td><td>PVsyst / HelioScope simulation</td></tr>
+        <tr><td>Equipment preferences</td><td class="arrow-col">→</td><td>Inverter &amp; module selection</td></tr>
+        <tr><td>Tender documents</td><td class="arrow-col">→</td><td>Compliance matrix + technical response</td></tr>
+        <tr><td>PV+BESS requirements</td><td class="arrow-col">→</td><td>Feasibility &amp; preliminary design</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="process" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">02 — how it works</span><h2>Three steps</h2></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Send the project</h3>
+        <p>Plans, bills, site data, tender documents, or client requirements — however far along it is.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>I engineer it</h3>
+        <p>Design, simulation, BOQ, single-line diagrams, and technical documentation — with engineer-led review at every step.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>You deliver</h3>
+        <p>You receive a reviewed, client-ready engineering package that fits directly into your company's workflow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">03 — selected engineering experience</span><h2>Case studies</h2></div>
+
+    <div class="case">
+      <div class="case-top"><h3>Utility-Scale Solar Plant</h3><span class="ptype">ground-mount · 2.4 MWp</span></div>
+      <div class="case-loc">Homs region</div>
+      <div class="case-cols">
+        <div><div class="case-label">challenge</div><p>Distribute a large multi-inverter array through a dual-transformer step-up architecture while meeting lightning protection and earthing requirements.</p></div>
+        <div><div class="case-label">my role</div><p>Electrical single-line design, AC totalizer configuration, transformer sizing coordination, and protection system layout.</p></div>
+        <div><div class="case-label">result</div><p>A fully documented SLD ready for utility-scale execution, covering the complete DC-to-grid distribution path.</p></div>
+      </div>
+      <div class="case-stats">
+        <div><div class="stat-num">2.4 MWp</div><div class="stat-label">capacity</div></div>
+        <div><div class="stat-num">4,080</div><div class="stat-label">panels · 620 Wp</div></div>
+        <div><div class="stat-num">2 × 1,600 kVA</div><div class="stat-label">transformers</div></div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><h3>Industrial Hybrid PV-Diesel Retrofit</h3><span class="ptype">hybrid · 169 kWp</span></div>
+      <div class="case-loc">Lebanon</div>
+      <div class="case-cols">
+        <div><div class="case-label">challenge</div><p>Reduce generator loading on a factory running two diesel generators, by extending an existing hybrid PV-diesel system.</p></div>
+        <div><div class="case-label">my role</div><p>PV design, PVsyst yield simulation, integration of two Fronius inverter models (Symo &amp; Tauro) across sites 90m apart via Modbus and Ethernet, plus fuel-saving controller coordination.</p></div>
+        <div><div class="case-label">result</div><p>Extended system validated by simulation, cutting reliance on diesel generation with a fast payback period.</p></div>
+      </div>
+      <div class="case-stats">
+        <div><div class="stat-num">169 kWp</div><div class="stat-label">added capacity</div></div>
+        <div><div class="stat-num">293 MWh</div><div class="stat-label">simulated yield / year</div></div>
+        <div><div class="stat-num">80.6%</div><div class="stat-label">performance ratio</div></div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><h3>Commercial Rooftop — Grid-Connected</h3><span class="ptype">grid-connected · 119 kWp</span></div>
+      <div class="case-loc">El Aatchâné, Lebanon</div>
+      <div class="case-cols">
+        <div><div class="case-label">challenge</div><p>Design a full grid-connected system sized to a constrained residential/commercial roof geometry.</p></div>
+        <div><div class="case-label">my role</div><p>Fixed-tilt array orientation, inverter selection, and full PVsyst yield simulation with loss-diagram validation.</p></div>
+        <div><div class="case-label">result</div><p>A simulation-backed design delivered with a strong performance ratio, ready for procurement.</p></div>
+      </div>
+      <div class="case-stats">
+        <div><div class="stat-num">119 kWp</div><div class="stat-label">capacity</div></div>
+        <div><div class="stat-num">201.5 MWh</div><div class="stat-label">simulated yield / year</div></div>
+        <div><div class="stat-num">81.9%</div><div class="stat-label">performance ratio</div></div>
+      </div>
+    </div>
+
+    <h3 style="margin:48px 0 20px; font-size:1.15rem;">More engineering work</h3>
+    <div class="pgrid">
+
+      <div class="pcard">
+        <div class="pcard-row">
+          <img src="project-rooftop-array.png" alt="Installed rooftop solar array">
+          <img src="project-rooftop-render.png" alt="3D design render of rooftop array">
+          <img src="project-inverter-room.png" alt="Inverter and battery room">
+        </div>
+        <div class="pcard-top"><h4>Large-Scale Rooftop Array</h4><span class="ptype">commercial rooftop</span></div>
+        <p class="desc">End-to-end delivery: 3D layout modelling, full installation across an industrial roof, and a multi-inverter room with battery storage.</p>
+        <div class="mini-specs"><span><b>scope</b> design → install → commissioning</span></div>
+      </div>
+
+      <div class="pcard">
+        <img class="pcard-img" src="wiring-layout.png" alt="Rooftop PV string wiring and combiner box layout">
+        <div class="pcard-top"><h4>Rooftop Wiring &amp; Combiner Design</h4><span class="ptype">electrical layout</span></div>
+        <p class="desc">Colour-coded string wiring layout for a large multi-roof commercial array, mapping the full DC collection network before installation.</p>
+        <div class="mini-specs"><span><b>deliverable</b> string wiring layout</span></div>
+      </div>
+
+      <div class="pcard">
+        <img class="pcard-img" src="control-panel.png" alt="Automatic control panel wiring diagram">
+        <div class="pcard-top"><h4>Automatic Control Panel</h4><span class="ptype">control &amp; protection</span></div>
+        <p class="desc">Automatic grid/generator switching panel combining CT metering, phase relay, surge protection, and a scheduled timer for unattended operation.</p>
+        <div class="mini-specs"><span><b>control</b> CT metering + phase relay + timer</span></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-top"><h4>Hospital Critical-Power Hybrid</h4><span class="ptype">fuel-saving hybrid</span></div>
+        <p class="desc">Single-line design integrating solar with dual diesel generators and the utility grid to secure critical hospital loads, using genset controllers for automatic transfer.</p>
+        <div class="mini-specs"><span><b>inverters</b> 110 kW Sungrow</span><span><b>control</b> DEIF gensets</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="expertise" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">04 — expertise</span><h2>What I cover</h2></div>
+    <div class="capgrid">
+      <div class="cap"><h4>PV system design &amp; sizing</h4><p>Array configuration, string sizing, tilt/orientation, and capacity planning against real load and irradiance data.</p></div>
+      <div class="cap"><h4>Simulation &amp; yield analysis</h4><p>PVsyst, HelioScope, and HOMER modelling with loss diagrams and P50/P90 production probability.</p></div>
+      <div class="cap"><h4>Single-line &amp; electrical diagrams</h4><p>Full electrical distribution drawings for PV, hybrid, and battery-backed systems, ready for site execution.</p></div>
+      <div class="cap"><h4>Hybrid PV-diesel &amp; BESS</h4><p>Fuel-saving controller integration, multi-inverter interfacing, and generator load coordination.</p></div>
+      <div class="cap"><h4>Tender &amp; proposal support</h4><p>Compliance matrices, technical responses, and client-ready proposal documentation.</p></div>
+      <div class="cap"><h4>BoQ &amp; cost estimation</h4><p>Bills of quantities, component specification, and cabling schedules for accurate bid preparation.</p></div>
+    </div>
+    <div class="toolrow" style="margin-top:34px;">
+      <span class="tool">PVsyst</span>
+      <span class="tool">HelioScope</span>
+      <span class="tool">HOMER</span>
+      <span class="tool">AutoCAD</span>
+      <span class="tool">Fronius Solar.web</span>
+      <span class="tool">Modbus / SunSpec</span>
+      <span class="tool">DEIF genset control</span>
+      <span class="tool">IEC 61215 / 61730</span>
+    </div>
+    <p class="credline">M.Sc. in Microgrid Control enhanced with AI methods. AI-enhanced workflows speed up simulation, layout, and documentation turnaround — with engineer-led technical review on every deliverable. Selected work is presented with client and company identities withheld where required by confidentiality agreements.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">05 — contact</span><h2 style="color:var(--paper);">Work with me</h2></div>
+    <div class="contact-grid">
+      <h2 class="big">Have a project your team doesn't have capacity for?</h2>
+      <div class="contact-links">
+        <a href="mailto:dyalaalahmadieh@gmail.com">dyalaalahmadieh@gmail.com</a>
+        <a href="https://www.linkedin.com/in/dyala-alahmadieh-5781bb183" target="_blank" rel="noopener">linkedin.com/in/dyala-alahmadieh</a>
+        <a class="secondary" href="tel:+96171496869">+961 71 496 869</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Dyala Alahmadieh — Remote Solar Engineering Desk</footer>
+
+</body>
+</html>
