@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remote Renewable Desk — Global Remote Engineering Support</title>
+<title>Expertise — Remote Renewable Desk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -200,100 +200,111 @@
   </div>
 </nav>
 
-<header class="hero">
+<header class="pagebanner pagebanner-expertise">
   <div class="wrap">
-    <div class="hero-eyebrow">REMOTE RENEWABLE DESK</div>
-    <h1>A remote engineering team supporting renewable energy companies worldwide.</h1>
-    <p class="lede">Extra PV design, simulation, and proposal capacity for solar EPCs, developers, and consultants — delivered remotely, accurately, and on your timeline.</p>
-    <div class="hero-cta">
-      <a href="projects.html" class="btn btn-solid">View engineering work</a>
-      <a href="#contact" class="btn btn-outline">Discuss a project</a>
-    </div>
-    <div class="hero-flags">
-      <span class="flag">2.4 MWp utility-scale</span>
-      <span class="flag">PV + BESS hybrid</span>
-      <span class="flag">PVsyst · HelioScope</span>
-      <span class="flag">Worldwide delivery</span>
-    </div>
+    <div class="hero-eyebrow">WHAT WE DO</div>
+    <h1>Design, simulation, and documentation — end to end.</h1>
+    <p>The capabilities, software, and deliverable quality behind every project we take on.</p>
   </div>
 </header>
 
-<div class="credphoto-wrap">
-  <img class="credphoto" src="dyala-onsite.png" alt="On-site testing and commissioning at a utility-scale solar plant">
-  <div class="credphoto-cap">on-site testing &amp; commissioning — utility-scale PV plant</div>
-</div>
-
-<section id="desk">
+<section id="expertise">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-tag">01 — the offer</span><h2>Your Remote Engineering Desk</h2></div>
-    <p class="sec-sub">Need extra technical capacity without hiring another full-time engineer? Send us what you have — we return an engineering deliverable your team can use directly.</p>
-    <table class="desk-table">
-      <thead><tr><th>You send</th><th></th><th>We deliver</th></tr></thead>
-      <tbody>
-        <tr><td>Electricity bill + site data</td><td class="arrow-col">→</td><td>Preliminary system design</td></tr>
-        <tr><td>Roof / site drawings</td><td class="arrow-col">→</td><td>PV layout + string sizing</td></tr>
-        <tr><td>Project requirements</td><td class="arrow-col">→</td><td>PVsyst / HelioScope simulation</td></tr>
-        <tr><td>Equipment preferences</td><td class="arrow-col">→</td><td>Inverter &amp; module selection</td></tr>
-        <tr><td>Tender documents</td><td class="arrow-col">→</td><td>Compliance matrix + technical response</td></tr>
-        <tr><td>PV+BESS requirements</td><td class="arrow-col">→</td><td>Feasibility &amp; preliminary design</td></tr>
-        <tr><td>Post-commissioning technical issue</td><td class="arrow-col">→</td><td>Remote diagnostics &amp; troubleshooting guidance</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <div class="sec-head"><span class="sec-tag">capabilities</span><h2>What we cover</h2></div>
+    <div class="capgrid">
+      <div class="cap"><h4>PV system design &amp; sizing</h4><p>Array configuration, string sizing, tilt/orientation, and capacity planning against real load and irradiance data.</p></div>
+      <div class="cap"><h4>Simulation &amp; yield analysis</h4><p>PVsyst, HelioScope, PVsol, Aurora, and HOMER modelling with loss diagrams and P50/P90 production probability.</p></div>
+      <div class="cap"><h4>Single-line &amp; electrical diagrams</h4><p>Full electrical distribution drawings for PV, hybrid, and battery-backed systems, ready for site execution.</p></div>
+      <div class="cap"><h4>Hybrid PV-diesel &amp; BESS</h4><p>Fuel-saving controller integration, multi-inverter interfacing, and generator load coordination.</p></div>
+      <div class="cap"><h4>Tender &amp; proposal support</h4><p>Compliance matrices, technical responses, and client-ready proposal documentation.</p></div>
+      <div class="cap"><h4>BoQ &amp; cost estimation</h4><p>Bills of quantities, component specification, and cabling schedules for accurate bid preparation.</p></div>
+      <div class="cap"><h4>CO₂ reduction &amp; impact modelling</h4><p>Environmental impact calculations for proposals and client reporting — quantifying emissions avoided per project.</p></div>
+      <div class="cap"><h4>Remote after-sales &amp; technical support</h4><p>Post-commissioning diagnostic follow-up and troubleshooting guidance, informed by hands-on after-sales field experience — helping your team resolve issues quickly.</p></div>
+    </div>
 
-<section id="process" style="background:var(--paper-dim);">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-tag">02 — how it works</span><h2>Three steps</h2></div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Send the project</h3>
-        <p>Plans, bills, site data, tender documents, or client requirements — however far along it is.</p>
+    <div class="co2calc">
+      <div class="co2calc-head">
+        <h4>CO₂ Reduction Calculator</h4>
+        <span class="co2calc-tag">TRY IT</span>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>We engineer it</h3>
-        <p>Design, simulation, BOQ, single-line diagrams, and technical documentation — with engineer-led review at every step.</p>
+      <p class="co2-desc">Estimate the annual emissions a PV system avoids by displacing grid or generator electricity. Adjust the emission factor to match the client's grid or fuel mix.</p>
+      <div class="co2-grid">
+        <div class="co2-field">
+          <label for="co2-yield">ANNUAL ENERGY YIELD (MWh/year)</label>
+          <input type="number" id="co2-yield" value="200" min="0" step="1">
+        </div>
+        <div class="co2-field">
+          <label for="co2-factor">GRID/FUEL EMISSION FACTOR (kg CO₂ / kWh)</label>
+          <input type="number" id="co2-factor" value="0.5" min="0" step="0.01">
+          <div class="co2-note">typical range: 0.4–0.5 grid average · 0.6–0.9 diesel-heavy generation</div>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>You deliver</h3>
-        <p>You receive a reviewed, client-ready engineering package that fits directly into your company's workflow.</p>
+      <div class="co2-results">
+        <div><div class="co2-stat-num" id="co2-out-tons">100</div><div class="co2-stat-label">tons CO₂ avoided / year</div></div>
+        <div><div class="co2-stat-num" id="co2-out-cars">22</div><div class="co2-stat-label">cars off the road / year (equiv.)</div></div>
+        <div><div class="co2-stat-num" id="co2-out-trees">4,762</div><div class="co2-stat-label">mature trees planted (equiv.)</div></div>
       </div>
     </div>
+
+    <div class="toolrow" style="margin-top:34px;">
+      <span class="tool">PVsyst</span>
+      <span class="tool">HelioScope</span>
+      <span class="tool">PVsol</span>
+      <span class="tool">Aurora Solar</span>
+      <span class="tool">HOMER</span>
+      <span class="tool">AutoCAD</span>
+      <span class="tool">Fronius Solar.web</span>
+      <span class="tool">Modbus / SunSpec</span>
+      <span class="tool">DEIF genset control</span>
+      <span class="tool">IEC 61215 / 61730</span>
+    </div>
+
+    <div class="simout">
+      <div class="simout-head">
+        <h4>Sample Simulation Output</h4>
+        <span class="simout-tag">PVSYST</span>
+      </div>
+      <p class="simout-desc">An anonymized summary from an actual PVsyst deliverable — the level of detail every simulation report includes.</p>
+      <div class="simout-grid">
+        <div><div class="simout-stat-num">100 kWp</div><div class="simout-stat-label">system size · 246 modules</div></div>
+        <div><div class="simout-stat-num">2</div><div class="simout-stat-label">inverters · 4 sub-arrays</div></div>
+        <div><div class="simout-stat-num">189.3 MWh</div><div class="simout-stat-label">produced energy / year</div></div>
+        <div><div class="simout-stat-num">82.5%</div><div class="simout-stat-label">performance ratio</div></div>
+      </div>
+    </div>
+
+    <p class="credline">An engineering team led by Dyala Alahmadieh, M.Sc. in Microgrid Control enhanced with AI methods. Our workflows combine PVsyst, HelioScope, and AI-assisted automation for faster turnaround — with engineer-led technical review on every deliverable. Selected work is presented with client and company identities withheld where required by confidentiality agreements.</p>
   </div>
 </section>
 
-<section id="preview">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-tag">03 — a sample of our work</span><h2>Selected engineering experience</h2></div>
-    <div class="teaser-grid">
-      <div class="teaser-card">
-        <div class="ptype" style="margin-bottom:12px; display:inline-block;">ground-mount</div>
-        <h4>Utility-Scale Solar Plant</h4>
-        <div class="stat-num">2.4 MWp</div>
-        <div class="stat-label">4,080 panels · dual 1,600 kVA transformers</div>
-        <a class="more" href="projects.html#case-utility-scale">View case study →</a>
-      </div>
-      <div class="teaser-card">
-        <div class="ptype" style="margin-bottom:12px; display:inline-block;">hybrid retrofit</div>
-        <h4>Industrial PV-Diesel Hybrid</h4>
-        <div class="stat-num">169 kWp</div>
-        <div class="stat-label">293 MWh/yr simulated · 80.6% PR</div>
-        <a class="more" href="projects.html#case-hybrid-169">View case study →</a>
-      </div>
-      <div class="teaser-card">
-        <div class="ptype" style="margin-bottom:12px; display:inline-block;">grid-connected</div>
-        <h4>Multi-Array Plant</h4>
-        <div class="stat-num">100 kWp</div>
-        <div class="stat-label">189.3 MWh/yr simulated · 82.5% PR</div>
-        <a class="more" href="projects.html#case-100kwp">View case study →</a>
-      </div>
-    </div>
-    <a class="view-all" href="projects.html">View all engineering work →</a>
-  </div>
-</section>
+<script>
+(function(){
+  const y = document.getElementById('co2-yield');
+  const f = document.getElementById('co2-factor');
+  const outTons = document.getElementById('co2-out-tons');
+  const outCars = document.getElementById('co2-out-cars');
+  const outTrees = document.getElementById('co2-out-trees');
+
+  function fmt(n){ return n.toLocaleString(undefined, {maximumFractionDigits:1}); }
+
+  function calc(){
+    const mwh = parseFloat(y.value) || 0;
+    const factor = parseFloat(f.value) || 0;
+    const kwh = mwh * 1000;
+    const co2kg = kwh * factor;
+    const co2tons = co2kg / 1000;
+    const cars = co2tons / 4.6;
+    const trees = co2kg / 21;
+    outTons.textContent = fmt(co2tons);
+    outCars.textContent = fmt(cars);
+    outTrees.textContent = fmt(trees);
+  }
+
+  y.addEventListener('input', calc);
+  f.addEventListener('input', calc);
+  calc();
+})();
+</script>
 
 <section id="contact" class="contact">
   <div class="wrap">
